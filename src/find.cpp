@@ -11,7 +11,7 @@ using std::cout; using std::endl;
 void run_find(){
 
 //  Counting
-    std::vector<int> v{1, 5, 4, 3, 5, 2, 4, 5, 9, 0, 1};
+    std::vector<int> v{1, 5, 5, 4, 3, 5, 2, 4, 4, 5, 9, 0, 1};
     int num_fives = count(begin(v), end(v), 5);
     cout << num_fives << endl;
 
@@ -43,8 +43,15 @@ void run_find(){
     std::vector<int> sub{2,4};
     result = search(begin(v), end(v), begin(sub), end(sub));
     std::string sub_in_v = *result != 0?"True":"False";
-    cout << "Subsequence is inside v: " << sub_in_v;
+    cout << "Subsequence is inside v: " << sub_in_v << endl;
 
+    // Looking for two 4's in a row
+    result = search_n(begin(v), end(v), 2, 4);
+    result--;
+    int z = *result;
+    cout << "Find's the first 4 because if we decrement by 1 we get: " << z << endl;
 
-
+    // Finds first adjacent pari in vector
+    result = adjacent_find(begin(v), end(v));
+    cout << "First adjacent pair starts with: " << *result << endl;
 }
